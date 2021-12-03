@@ -15,3 +15,5 @@ export const camera_model = () =>{
         }
     )
 }   
+
+//jangan lupa export scene
