@@ -18,6 +18,8 @@ export const check_raycast = () =>{
             add_candle()
         , false})
     }
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+    mouse.y = -(event.clientY / window.innerHeight) * 2 -1 
 
     raycast.setFromCamera(mouse, camera)
 }
@@ -32,9 +34,4 @@ const add_candle = () =>{
         }
     })
     clone_candle.position.set(world_point.x, world_point.y, world_point.z)
-}
-
-function onMouseMOve(event){
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1
-    mouse.y = -(event.clientY / window.innerHeight) * 2 -1 
 }
