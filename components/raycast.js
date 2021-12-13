@@ -14,12 +14,9 @@ export const check_raycast = () =>{
     faceindex = intersects[0].faceindex
 
     if(raycast_object.name === 'top_cake' && faceindex === 1){
-        document.addEventListener('click', function(){
-            add_candle()
-        , false})
+        document.addEventListener('click', onMouseClick)
     }
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1
-    mouse.y = -(event.clientY / window.innerHeight) * 2 -1 
+    
 
     raycast.setFromCamera(mouse, camera)
 }
@@ -34,4 +31,11 @@ const add_candle = () =>{
         }
     })
     clone_candle.position.set(world_point.x, world_point.y, world_point.z)
+}
+
+const onMouseClick = (event){
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+    mouse.y = -(event.clientY / window.innerHeight) * 2 -1 
+
+    add_candle()
 }
