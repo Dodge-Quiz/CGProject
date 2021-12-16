@@ -6,9 +6,11 @@ import { cake } from './components/cake.js'
 import { camera_model } from './components/camera_model.js'
 import { check_raycast } from './components/raycast.js'
 
-export var scene, camera, renderer
+export var scene, camera1, camera2, renderer, currCamera, controls
 
-var controls
+export const setCamera = (tocamera) =>{
+    currCamera = tocamera
+}
 
 var doInit = () => {
     scene = new THREE.Scene()
@@ -18,9 +20,13 @@ var doInit = () => {
     const HEIGHT = window.innerHeight
     const ASPECT =  WIDTH / HEIGHT
 
-    camera = new THREE.PerspectiveCamera(FOV, ASPECT)  
-    camera.position.set(16, 12, -8)
-    camera.lookAt(0, 0, 0)
+    camera1 = new THREE.PerspectiveCamera(FOV, ASPECT)  
+    camera1.position.set(16, 12, -8)
+    camera1.lookAt(0, 0, 0)
+
+    camera2 = new THREE.PerspectiveCamera(FOV, ASPECT)
+    camera2.position.set(20, 4, 0)
+    camera2.lookAt(0, 0, 0)
     
     renderer = new THREE.WebGLRenderer({antialias: true})
     renderer.setSize(WIDTH, HEIGHT)
@@ -28,9 +34,11 @@ var doInit = () => {
     renderer.shadowMap.enabled = true
     renderer.shadowMap.type = 2
 
+    currCamera = camera1
+
     document.body.appendChild(renderer.domElement)
 
-    controls = new OrbitControls(camera, renderer.domElement)
+    controls = new OrbitControls(currCamera, renderer.domElement)
     camera_model()
 
     /*Code Here*/
@@ -45,7 +53,7 @@ var doRender = () => {
     check_raycast()
 
     requestAnimationFrame(doRender)
-    renderer.render(scene, camera)
+    renderer.render(scene, currCamera)
 }
 
 window.onload = () => {
@@ -59,8 +67,6 @@ window.onresize = () => {
 
     renderer.setSize(newW, newH)
 
-    camera.aspect = newW / newH
-    camera.updateProjectionMatrix()
+    currCamera.aspect = newW / newH
+    currCamera.updateProjectionMatrix()
 }
-
-

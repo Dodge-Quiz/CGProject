@@ -12,6 +12,7 @@ export const candle = () =>{
     let object = new THREE.Mesh(geometry, material)
     object.receiveShadow = true
     object.castShadow = true
+    object.name = 'candle'
 
     candle.add(object)
 
@@ -24,11 +25,13 @@ export const candle = () =>{
     object.receiveShadow = true
     object.castShadow = true
     object.position.set(0, -0.3, 0)
+    object.name = 'candle'
 
     candle.add(object)
 
     let light = new THREE.PointLight(0xE65C2C, 1, 8)
     light.position.set(0, 0.1, 0)
+    light.name = 'candle_light'
 
     candle.add(light)
 

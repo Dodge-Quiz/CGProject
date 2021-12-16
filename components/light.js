@@ -6,6 +6,7 @@ export const light = () =>{
 
     let spot_light = new THREE.SpotLight(0xE8DC8B, 1, 1000, Math.PI/8)
     spot_light.position.set(20, 30, 0)
+    spot_light.name = 'spotlight'
 
     return ambient_light, spot_light
 }

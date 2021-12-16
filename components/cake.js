@@ -2,7 +2,7 @@ import * as THREE from '../three.js/build/three.module.js'
 import { FontLoader } from '../three.js/examples/jsm/loaders/FontLoader.js'
 import { TextGeometry } from '../three.js/examples/jsm/geometries/TextGeometry.js'
 
-const cake_group = new THREE.Group()
+export const cake_group = new THREE.Group()
 
 export const cake = () =>{
     let geometry, material, texture, normal_texture
@@ -65,6 +65,8 @@ export const cake = () =>{
     cake_group.add(plate)
     cake_group.add(bottom_cake)
     cake_group.add(top_cake)
+
+    cake_group.name = 'cake'
 
     return cake_group
 }
