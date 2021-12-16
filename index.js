@@ -1,7 +1,14 @@
-import * as THREE from './three.js/build/three.module.js'
 import { light } from './components/light.js'
+import { table } from './components/table.js'
+import * as THREE from './three.js/build/three.module.js'
+import { OrbitControls } from './three.js/examples/jsm/controls/OrbitControls.js'
+import { cake } from './components/cake.js'
+import { camera_model } from './components/camera_model.js'
+import { check_raycast } from './components/raycast.js'
 
 export var scene, camera, renderer
+
+var controls
 
 var doInit = () => {
     scene = new THREE.Scene()
@@ -23,12 +30,20 @@ var doInit = () => {
 
     document.body.appendChild(renderer.domElement)
 
+    controls = new OrbitControls(camera, renderer.domElement)
+    camera_model()
+
     /*Code Here*/
 
+    scene.add(table())
     scene.add(light())
+    scene.add(cake())
 }
 
 var doRender = () => {
+    controls.update()
+    check_raycast()
+
     requestAnimationFrame(doRender)
     renderer.render(scene, camera)
 }

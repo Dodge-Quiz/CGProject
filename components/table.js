@@ -1,8 +1,9 @@
+import { scene } from '../index.js'
 import * as THREE from '../three.js/build/three.module.js'
 
 export const table = () =>{
 
-    const table = new THREE.Group()
+    const table_group = new THREE.Group()
 
     let geometry = new THREE.CylinderGeometry(12, 12, 1.2, 8)
     let texture = new THREE.TextureLoader().load('../assets/textures/wood_texture.jpg')
@@ -39,11 +40,11 @@ export const table = () =>{
 
     top_part.position.set(0, 0, 0)
     leg_part.position.set(0, -8.5, 0)
-    bottom_part.position.set(0, -15, 0)
+    bottom_part.position.set(0, -16, 0)
 
-    table.add(top_part)
-    table.add(leg_part)
-    table.add(bottom_part)
+    table_group.add(top_part)
+    table_group.add(leg_part)
+    table_group.add(bottom_part)
 
-    return table
+    return table_group
 }

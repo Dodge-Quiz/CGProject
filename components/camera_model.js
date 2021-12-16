@@ -8,12 +8,11 @@ export const camera_model = () =>{
         '../assets/3dmodel/model.gltf',
         function (gltf){
             const camera_model = gltf.scene
-            camera_model.scale.set(1, 1, 1)
+            camera_model.scale.set(5, 5, 5)
             camera_model.position.set(20, -2, 0)
             camera_model.rotation.set(0, -Math.PI/2, 0)
             scene.add(camera_model)
         }
     )
+    return loader
 }   
-
-//jangan lupa export scene
