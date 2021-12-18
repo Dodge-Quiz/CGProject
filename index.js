@@ -5,6 +5,7 @@ import { OrbitControls } from './three.js/examples/jsm/controls/OrbitControls.js
 import { cake } from './components/cake.js'
 import { camera_model } from './components/camera_model.js'
 import { check_raycast } from './components/raycast.js'
+import { addSkyBox } from './components/skybox.js'
 
 export var scene, camera1, camera2, renderer, currCamera, controls
 
@@ -46,6 +47,7 @@ var doInit = () => {
     scene.add(table())
     scene.add(light())
     scene.add(cake())
+    addSkyBox(scene)
 }
 
 var doRender = () => {
