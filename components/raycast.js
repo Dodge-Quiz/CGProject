@@ -14,7 +14,7 @@ let spotlightOn = true
 export const check_raycast = () =>{
     window.addEventListener('mousemove', onMouseMove)
     window.addEventListener('click', onMouseClick)
-    window.addEventListener('keyup', onKeyUp)
+    window.addEventListener('keypress', onKeyUp)
 
     raycast.setFromCamera(mouse, currCamera)
     const intersects = raycast.intersectObjects(scene.children)
