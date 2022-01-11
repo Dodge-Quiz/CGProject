@@ -73,7 +73,7 @@ const changetoFPS = () =>{
     if(Iscamera1) {
         setCamera(camera2)
         Iscamera1 = false
-        controls.enabled = false
+        controls.enabled = true
     }
     else {
         setCamera(camera1)
@@ -118,7 +118,6 @@ const add_candle = () =>{
     })
     clone_candle.position.set(world_point.x, world_point.y + 0.5, world_point.z)
     clone_candle.name = 'candle'
-    //scene.add(clone_candle)
     cake_group.add(clone_candle)
 }
 
